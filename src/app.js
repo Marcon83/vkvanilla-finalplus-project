@@ -21,6 +21,39 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecast +
+      `
+    <div class="col-2">
+      <div class="weather-forecast-date">${day}</div>
+        <img 
+          src="https://openweathermap.org/img/wn/10d@2x.png" 
+          alt="" 
+          width="36"
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max">15° </
+          span>
+          <span class="weather-forecast-temperature-min">11° </
+          span>
+        </div>
+    </div>
+  `;
+  });
+
+  forecastHTML = `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -92,3 +125,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 search("Monrovia");
+displayForecast();
