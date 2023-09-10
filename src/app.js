@@ -41,7 +41,7 @@ function displayForecast(response) {
         forecastHTML +
         `
     <div class="col-2">
-    <div class="weather-forecast-date">${forecastDay.dt}</div>
+    <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
     ${index}
         <img 
           src="https://openweathermap.org/img/wn/${
@@ -124,6 +124,5 @@ function handleSubmit(event) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
 
 search("New York");
