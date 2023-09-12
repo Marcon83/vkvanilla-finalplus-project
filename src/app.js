@@ -72,7 +72,7 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   console.log(coordinates);
-  let apiKey = "e239a883216ce124d5dcb87c4ed8d51a";
+  let apiKey = "97c2f6a3b34509ac62090edc5d18d949";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
@@ -111,7 +111,7 @@ function showTemperature(response) {
   getForecast(response.data.coord);
 }
 function search(city) {
-  let apiKey = "e239a883216ce124d5dcb87c4ed8d51a";
+  let apiKey = "97c2f6a3b34509ac62090edc5d18d949";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
@@ -124,5 +124,6 @@ function handleSubmit(event) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
 
 search("New York");
